@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="app.js"></script>
+    <title>Yoram Project</title>
+</head>
+<style>
+    body {
+        /* background-position: center; */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("https://source.unsplash.com/dz8g0IxEqh0");
+        
+    }
+    #opacity {
+        opacity: 0.9;
+    }
+    .white {
+            font-weight: bold;
+            color: white;
+        }
+    .strong {
+            font-weight: bold;
+        }
+
+    .color {
+            color: blue;
+        }
+
+    .text-block {
+            text-decoration: solid;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    .opa {
+            opacity: 0.9;
+        }
+    </style>
+</style>
+<body>
+        <!-- block container -->
+        <div class="col-md-5 text-block rounded mt-4 p-3 opa">
+    <h3 class="">Search Patient:</h3>
+    <div class=" m-3">
+        <form action="/" method="get" class="form">
+        <label class="form-label m-0" for="search">Patient Name / ID </label>
+        <input type="search" name="search" id="search" class="form-control-md">
+        <button class="btn btn-sm btn-success">Search</button>
+        <label for="select" class="form-label">Sort By</label>
+        <select name="filter" id="select" class="rounded form-select-sm">
+            <option select value="normal"></option>
+            <option value="ga">GA</option>
+            <option value="age">Patient Age</option>
+           </select>
+           <button class="btn btn-sm btn-success">Sort</button>
+           <br>
+    </form>
+        
+       </div>
+       </div>
+    <%   if (!qer.length && search) { %>
+        <h2 class="text-center strong">No Patients Found</h2>
+    <%   } else { %>
+        <% if (!search) { %>
+          <h1 class="m-2 text-center strong">All Patients:</h1>
+      <%  } else { %>
+        <h1 class="m-2 text-center strong"><%=qer.length%> Patient Found:</h1>
+    <%  } %>
+    <div class="row">
+        <% for (let i of qer) { %>
+            <%  var firstname = i.FirstName %>
+            <%  var lastname = i.LastName %>
+            <% var lmp = i.LMP %>
+            <% var birthdate = i.DOB %>
+            <%  var PregnencyAge = i.pregnancy_age %>
+            <%  var PatientGa = i.Ga %>
+            <%  var age = i.patient_age%>
+        <div class="col-auto text-center">
+            <div class="card m-2" id="opacity">
+                <div class="card-body">
+                    <div class="card-title text-center"><%=firstname%> <%=lastname%></div>
+                    <hr>
+                    <div class="card-text">ID: <%=i.ID%></div>
+                    <div class="card-text">Birth Date: <%=birthdate.toLocaleString().slice(0,10)%></div>
+                    <div class="card-text">Patient Age is : <%=age%></div>
+                    <div class="card-text">Last Menstrual Period: <%=lmp.toLocaleString().slice(0,10)%></div>
+                    <div class="card-text">Gestational Age : <%=PatientGa%></div>
+                    <div class="card-text">Pregnancy is <%=PregnencyAge%> Days old</div>
+                </div>
+            </div> 
+        </div>
+        <% } %> 
+    </div>
+   
+
+   <% } %>
+      
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
