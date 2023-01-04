@@ -12,7 +12,7 @@ please set the username and pw based on your mysql configuration, otherwise it w
 4. run npm install
 5. run node db_script.js
 6. after it was created successfully press Ctrl+C
-7.run node app.js
+7. run node app.js
 Server is Now Running, Open Chrome on localhost:3000/
 
 
