@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const mysql = require('mysql');
-
+const port = 3000;
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '123456',
-    database : 'dan',
+    password : '',
+    database : 'test',
     multipleStatements: true
   });
 
@@ -43,6 +43,6 @@ app.get("/", function(req, res){
 });
 
 
-app.listen('3000',()=> {
-    console.log('start 3000')
+app.listen(port,()=> {
+    console.log(`Starting on ${port}`)
 })
